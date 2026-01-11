@@ -39,8 +39,8 @@
 Unity Machine Learning Agents (ML-Agents) is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents.
 For game developers, these trained agents can be used for multiple purposes, including controlling NPC behaviour (in a variety of settings such as multi-agent and adversarial), automated testing of game builds and evaluating different game design decisions pre-release.
 
-<a id = 'reacher_environment'></a>
-## 1.2. Reacher environment
+<a id = 'banana_environment'></a>
+## 1.2. Banana environment
 
 This project aims to solve the Unity environment called **"Banana collector"** provided by Udacity. It can be downloaded from one of the links below:
 - [Linux]( https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
@@ -52,7 +52,7 @@ Note: this repository already includes a Windows build at `./Banana_Windows_x86_
 
 
 <a id = 'solving_environment'></a>
-## 1.3 Solving the "Reacher" environment
+## 1.3 Solving the "Banana" environment
 
 For this project, we will train an agent to navigate (and collect bananas!) in a large, square world.
 
