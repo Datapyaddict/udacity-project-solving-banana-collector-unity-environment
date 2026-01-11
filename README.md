@@ -40,7 +40,7 @@ Unity Machine Learning Agents (ML-Agents) is an open-source Unity plugin that en
 For game developers, these trained agents can be used for multiple purposes, including controlling NPC behaviour (in a variety of settings such as multi-agent and adversarial), automated testing of game builds and evaluating different game design decisions pre-release.
 
 <a id = 'banana_environment'></a>
-## 1.2. Banana environment
+## 1.2. Banana collector environment
 
 This project aims to solve the Unity environment called **"Banana collector"** provided by Udacity. It can be downloaded from one of the links below:
 - [Linux]( https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
@@ -52,7 +52,7 @@ Note: this repository already includes a Windows build at `./Banana_Windows_x86_
 
 
 <a id = 'solving_environment'></a>
-## 1.3 Solving the "Banana" environment
+## 1.3 Solving the "Banana collector" environment
 
 For this project, we will train an agent to navigate (and collect bananas!) in a large, square world.
 
@@ -70,7 +70,7 @@ The task is episodic, and in order to solve the environment, the agent must get 
 
 <img src="pictures/banana.gif" width="500"/>
 
-As an indication, in the solution implemented by Udacity, the average score over 100 episodes has reached the threshold of `+13` ain fewer than `1800` episodes.
+As an indication, in the solution implemented by Udacity, the average score over 100 episodes has reached the threshold of `+13` in fewer than `1800` episodes.
 
 <img src="pictures/banana_udacity_performance.png" width="500"/>
 
@@ -113,7 +113,7 @@ Two scripts are used:
 <a id = 'navigation_overview'></a>
 ## 4.1 Overview
 
-This script is an end-to-end training runner for a Double DQN agent on the Unity Banana collector environment.
+This script is an end-to-end training runner for a `Double DQN agen`t on the Unity `Banana collector` environment.
 
 It can run:
 
@@ -124,13 +124,13 @@ and it saves checkpoints, logs, plots, and CSV/JSON summaries under a timestampe
 
 `results/navigation/run_YYYYMMDD_HHMMSS/`
 
-However, in this experiment, it is run with the default hyperparameters and single seed. Hence, only one runs is referenced (folder `./results/navigation/`
+However, in this experiment, it is run with the default hyperparameters and a single seed. Hence, only one run is referenced (folder `./results/navigation/`
 
 The following features are elaborated in [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-reacher-unity-environment-20-agents/blob/main/report.pdf):
 
 - `Double DQN` per trial/seed.
-- ε-greedy` for action selection with `ε schedule`.
-- Replay buffer storing online transitions.
+- `ε-greedy` for action selection with `ε schedule`.
+- `Replay buffer` storing online transitions.
 - Training with based-exploration strategy to build the replay buffer.
 - Offline optimization via minibatch sampling from the replay buffer. 
 - Huber Loss.
@@ -190,9 +190,9 @@ Default hyperparameters:
     - double_dqn: True
     - grad_clip: 10
 
-- `--max-trials <int>` (default: 8): number of randomly sampled trials to run when `--search` is enabled.
+- `--max-trials <int>` (default: 10): number of randomly sampled trials to run when `--search` is enabled.
 
-Note that the seed is defaulted to 22. However, multiple seeds can be set.
+Note that the seed is defaulted to 22. However, multiple seeds can be set as a list in the script.
 
 <a id = 'navigation_logging'></a>
 ## 4.3 Logging (`run.log`)
@@ -227,11 +227,6 @@ Per trial/seed evaluation plot:
     - Eval (100-episode MA): moving average over the last 100 evaluation scores
 - A “goal window start” vertical line indicates the first episode of the 100-episode window where the moving average meets or exceeds the goal.
 
-Best-trial plot (only when `--search` is enabled):
-
-- Directory: `results/navigation/run/plots/`
-- Filename: `{trial_id}_evaluation_mean100.png`
-- One curve: Eval (100-episode MA) averaged across seeds
 
 <a id = 'csv_summaries'></a>
 ## 4.5 CSV summaries
@@ -284,19 +279,12 @@ Best-trial plot (only when `--search` is enabled):
         - `tau` 
     - `scores_per_seed`
 
-- For each trial_id/seed run, when the goal is reached, the file displays the episode when the run first meets the “solved” condition based on the evaluation 100-episode moving average.
-- Path: per trial/seed agent run directory , e.g.:
-  `results/navigation/run/trials/trial_001/seed_12/solved_evaluation_metric.json`
-- Contents:
-    - `Episode` : the 1-based training episode index at which the agent is first considered solved (i.e., the first episode where the conditions below are met).
-    - `mean_100_eval` : the 100-episodes moving average of the 1-episode evaluation score 
-
 <a id = 'model_checkpoints'></a>
 ## 4.7 Model checkpoints
 
 - Only the online policy model is checkpointed (not critic, not optimizers).
 - Path pattern:
-  `results/navigation/run.../trials/trial_{trial}/seed_{seed}/checkpoints/online_policy_model.{episode}.tar`. e.g.: online_policy_model.99.tar
+  `results/navigation/run.../trials/trial_{trial}/seed_{seed}/checkpoints/model.{episode}.tar`. e.g.: model.99.tar
 
 For simplicity, only the first and last episode checkpoints are kept in the repository.
 
@@ -323,7 +311,7 @@ This is a checkpoint utility used to:
     - a PyTorch *.weights.pt file (a state_dict), and/or
     - a NumPy *.weights.npz file (arrays per parameter).
 
-Optionally validates the weights by reconstructing the FCDP policy network with inferred dimensions and running a dummy forward pass.
+Optionally validates the weights by reconstructing the `Q network` with inferred dimensions and running a dummy forward pass.
 
 <a id = 'extract_weights_n_load_into_policy_arguments'></a>
 ## 5.2 CLI arguments
@@ -348,7 +336,7 @@ Optional CLI arguments:
 
 In this experiment, the script was run to extract the weights of the policy model generated by seeds 66. 
 ```bash
-python extract_weights_n_load_into_policy.py --run-dir "path/to/results/navigation/run_run_20251229_225041_TRAINING_PER_SEED" --seed 66
+python extract_weights_n_load_into_policy.py --run-dir "path\to\results\navigation\run" --seed 22
 
 ```
 
