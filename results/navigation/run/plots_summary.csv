@@ -1,0 +1,2 @@
+trial_id,seed,stop_episode,stop_cause,stop_mean_100_eval
+default,22,784,goal_mean_100_reward,13.040000
