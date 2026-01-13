@@ -1042,7 +1042,7 @@ def _build_search_space():
     """
     grid = {
         'hidden_dims': [(64,64), (128,128), (256,256)],
-        'optimizer': ['RMSprop','Adam'],
+        'optimizer': ['Adam'],
         'lr': [1e-4, 3e-4, 5e-4],
         'buffer_size':  [50_000],
         'batch_size': [64],
@@ -1087,7 +1087,7 @@ def _resolve_banana_exe(arg_path=None) -> str:
 
     Strategy:
         - This function is currently hard-wired to a fixed Windows path to Banana.exe.
-        - Update the path if your local layout differs.
+        - Update the path if the local layout differs.
 
     Raises:
         FileNotFoundError: If the hard-coded path does not exist.
@@ -1095,7 +1095,7 @@ def _resolve_banana_exe(arg_path=None) -> str:
     Returns:
         str: Absolute path to Banana.exe.
     """
-    fixed_path = r"path\to\Banana_Windows_x86_64\Banana.exe"
+    fixed_path = r"C:\Users\anhtu\pyspark\Reinforcement_Learning_Projects\deep-reinforcement-learning-master\p1_navigation\Banana_Windows_x86_64\Banana.exe"
     if not os.path.isfile(fixed_path):
         raise FileNotFoundError(f"Unity executable not found: {fixed_path}")
     return fixed_path
@@ -1353,7 +1353,7 @@ def main():
         Unity env is now spawned in a separate worker process per seed/trial (no shared in-process env).
         Models run on CPU for compatibility with subprocess workers.
         Epsilon schedule supports linear/exp with warmup gating; decay rate matters and should be tuned to
-        your total training steps (aim to hit the floor around 30–60% of the run).
+        the total training steps (aim to hit the floor around 30–60% of the run).
     """
     # Parse CLI options
     parser = argparse.ArgumentParser()

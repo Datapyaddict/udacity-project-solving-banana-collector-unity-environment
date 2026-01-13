@@ -18,7 +18,7 @@
 - [4.5 CSV summaries](#csv_summaries) 
 - [4.6 JSON files](#json_files) 
 - [4.7 Model checkpoints](#model_checkpoints) 
-- [4.8 2-step runs (commands)](#navigation_runs)
+- [4.8 script run command](#navigation_runs)
 
 [5. Script: `extract_weights_n_load_into_policy.py`](#extract_weights_n_load_into_policy)  
 > [5.1 Overview](#extract_weights_n_load_into_policy_overview)   
@@ -181,8 +181,8 @@ Default hyperparameters:
     - batch_size: 64
     - init_epsilon: 1
     - min_epsilon: 0.05
-    - schedule: exp
-    - decay_steps`: 300000
+    - schedule: 'exp'
+    - decay_steps: 300000
     - n_warmup_batches: 5
     - target_update_every: 100
     - tau_ratio: 0.3
@@ -289,7 +289,7 @@ Per trial/seed evaluation plot:
 For simplicity, only the first and last episode checkpoints are kept in the repository.
 
 <a id = 'navigation_runs'></a>
-## 4.8 2-step runs (commands)
+## 4.8 script run command
 
 Our approach to solving the environment is to run the script with the default hyperparameters and the default seed, considering that one seed takes around 6 hours and it is costly to run trials with different seeds. 
 ```bash
