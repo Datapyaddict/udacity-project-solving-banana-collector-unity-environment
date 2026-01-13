@@ -100,7 +100,7 @@ The solution uses a **Double DQN** agent with **Huber Loss**, which relies on:
 - an **online state-action value function Q(s,a)** network 
 - and  **target Q** network.
 
-See [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-reacher-unity-environment-20-agents/blob/main/report.pdf) for the methodology and results.
+See [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-banana-collector-unity-environment/blob/main/report.pdf) for the methodology and results.
 
 Two scripts are used:
 
@@ -126,7 +126,7 @@ and it saves checkpoints, logs, plots, and CSV/JSON summaries under a timestampe
 
 However, in this experiment, it is run with the default hyperparameters and a single seed. Hence, only one run is referenced (folder `./results/navigation/`
 
-The following features are elaborated in [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-reacher-unity-environment-20-agents/blob/main/report.pdf):
+The following features are elaborated in [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-banana-collector-unity-environment/blob/main/report.pdf):
 
 - `Double DQN` per trial/seed.
 - `ε-greedy` for action selection with `ε schedule`.
