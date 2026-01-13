@@ -113,7 +113,7 @@ Two scripts are used:
 <a id = 'navigation_overview'></a>
 ## 4.1 Overview
 
-This script is an end-to-end training runner for a `Double DQN agen`t on the Unity `Banana collector` environment.
+This script is an end-to-end training runner for a `Double DQN agent` on the Unity `Banana collector` environment.
 
 It can run:
 
@@ -124,17 +124,17 @@ and it saves checkpoints, logs, plots, and CSV/JSON summaries under a timestampe
 
 `results/navigation/run_YYYYMMDD_HHMMSS/`
 
-However, in this experiment, it is run with the default hyperparameters and a single seed. Hence, only one run is referenced (folder `./results/navigation/`
+However, in this experiment, it is run with the `default hyperparameters` and a `single seed`. Hence, only one run is referenced (folder `./results/navigation/`
 
 The following features are elaborated in [report.pdf](https://github.com/Datapyaddict/udacity-project-solving-banana-collector-unity-environment/blob/main/report.pdf):
 
 - `Double DQN` per trial/seed.
 - `ε-greedy` for action selection with `ε schedule`.
 - `Replay buffer` storing online transitions.
-- Training with based-exploration strategy to build the replay buffer.
-- Offline optimization via minibatch sampling from the replay buffer. 
-- Huber Loss.
-- Early stopping (goal performance, max time, max episodes).
+- Training with `based-exploration strategy` to build the replay buffer.
+- Offline optimization via `minibatch sampling` from the replay buffer. 
+- `Huber Loss`.
+- `Early stopping` (goal performance, max time, max episodes).
 - 1-episode evaluation after each training episode using a greedy (no-noise) strategy.
 - Final evaluation using 100 episodes with a greedy strategy.
 
@@ -282,7 +282,7 @@ Per trial/seed evaluation plot:
 <a id = 'model_checkpoints'></a>
 ## 4.7 Model checkpoints
 
-- Only the online policy model is checkpointed (not critic, not optimizers).
+- Only the online Q-network model is checkpointed (not target Q-network, not optimizers).
 - Path pattern:
   `results/navigation/run.../trials/trial_{trial}/seed_{seed}/checkpoints/model.{episode}.tar`. e.g.: model.99.tar
 
